@@ -1,8 +1,0 @@
-utils\Validator.class
-controller\Controller.class
-entity\Circle.class
-Main\Main.class
-utils\Menu.class
-entity\Shape.class
-entity\Rectangle.class
-entity\Triangle.class
