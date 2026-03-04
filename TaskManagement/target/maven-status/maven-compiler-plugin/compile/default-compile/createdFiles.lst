@@ -1,0 +1,6 @@
+utils\Validator.class
+entity\Task.class
+entity\TaskType.class
+ui\Main.class
+data\TaskTypeData.class
+manager\TaskManager.class
