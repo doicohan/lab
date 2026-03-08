@@ -1,6 +1,6 @@
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\Main.java
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\Management.java
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\SalaryHistory.java
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\SalaryStatus.java
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\Validator.java
-C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\worker\Worker.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\controller\Management.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\model\SalaryHistory.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\model\SalaryStatus.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\model\Worker.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\ui\Main.java
+C:\Users\dongp\OneDrive\Documents\NetBeansProjects\ManageWorker\src\main\java\utils\Validator.java

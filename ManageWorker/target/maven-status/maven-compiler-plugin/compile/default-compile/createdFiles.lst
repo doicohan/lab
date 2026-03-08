@@ -1,6 +1,6 @@
-worker\SalaryStatus.class
-worker\Validator.class
-worker\SalaryHistory.class
-worker\Worker.class
-worker\Main.class
-worker\Management.class
+utils\Validator.class
+controller\Management.class
+model\SalaryHistory.class
+ui\Main.class
+model\Worker.class
+model\SalaryStatus.class
