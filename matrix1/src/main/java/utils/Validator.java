@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import java.util.Scanner;
 
@@ -6,34 +6,39 @@ public class Validator {
 
     private final Scanner sc = new Scanner(System.in);
 
-    public int getInt(String message) {
+    public int getInt(String msg) {
         while (true) {
             try {
-                System.out.print(message);
-                return Integer.parseInt(sc.nextLine().trim());
+                System.out.print(msg);
+                return Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("Values of matrix must be the number");
+                System.out.println("Value must be a number");
             }
         }
     }
 
-    public int getPositiveInt(String message) {
+    public int getPositiveInt(String msg) {
         while (true) {
-            int number = getInt(message);
-            if (number > 0) {
-                return number;
+            int n = getInt(msg);
+
+            if (n > 0) {
+                return n;
             }
-            System.out.println("Row and column must be greater than 0");
+
+            System.out.println("Value must be greater than 0");
         }
     }
 
-    public int getIntLimit(String message, int min, int max) {
+    public int getIntLimit(String msg, int min, int max) {
         while (true) {
-            int number = getInt(message);
-            if (number >= min && number <= max) {
-                return number;
+
+            int n = getInt(msg);
+
+            if (n >= min && n <= max) {
+                return n;
             }
-            System.out.println("Please choose between " + min + " and " + max);
+
+            System.out.println("Please input number from " + min + " to " + max);
         }
     }
 }
