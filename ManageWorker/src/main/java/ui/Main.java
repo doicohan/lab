@@ -48,7 +48,7 @@ public class Main {
 
                     case 2:
 
-                        System.out.println("\n-------- Up/Down Salary --------");
+                        System.out.println("\n-------- Up Salary --------");
 
                         id = Validator.inputString("Enter Code: ");
                         double up = Validator.inputSalary("Enter Salary: ");
@@ -61,7 +61,7 @@ public class Main {
 
                     case 3:
 
-                        System.out.println("\n-------- Up/Down Salary --------");
+                        System.out.println("\n-------- Down Salary --------");
 
                         id = Validator.inputString("Enter Code: ");
                         double down = Validator.inputSalary("Enter Salary: ");
