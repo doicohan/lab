@@ -37,26 +37,29 @@ public class Matrix {
 
         if (m1 != null && m2 != null) {
 
-            m1.print();
-            System.out.println(op);
-            m2.print();
-            System.out.println("=");
-
-        }
-
-        print();
-    }
-
-    private void print() {
-
-        for (int i = 0; i < row; i++) {
-
-            for (int j = 0; j < col; j++) {
-
-                System.out.print("[" + data[i][j] + "]");
-
+            for (int i = 0; i < m1.row; i++) {
+                for (int j = 0; j < m1.col; j++) {
+                    System.out.print("[" + m1.data[i][j] + "]");
+                }
+                System.out.println();
             }
 
+            System.out.println(op);
+
+            for (int i = 0; i < m2.row; i++) {
+                for (int j = 0; j < m2.col; j++) {
+                    System.out.print("[" + m2.data[i][j] + "]");
+                }
+                System.out.println();
+            }
+
+            System.out.println("=");
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print("[" + data[i][j] + "]");
+            }
             System.out.println();
         }
     }
