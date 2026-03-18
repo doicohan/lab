@@ -4,25 +4,36 @@ public class Intern extends Candidate {
 
     private String major;
     private String semester;
-    private String universityName;
+    private String university;
 
-    public Intern() {
-    }
+    public Intern(String major, String semester, String university,
+            String id, String firstName, String lastName,
+            int birthYear, String address, String phone,
+            String email, int type) {
 
-    public Intern(String major, String semester, String universityName,
-            String candidateId, String firstName, String lastName,
-            int birthDate, String address, String phone,
-            String email, int candidateType) {
-
-        super(candidateId, firstName, lastName, birthDate, address, phone, email, candidateType);
+        super(id, firstName, lastName, birthYear, address, phone, email, type);
 
         this.major = major;
         this.semester = semester;
-        this.universityName = universityName;
+        this.university = university;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public String getUniversity() {
+        return university;
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "|" + major + "|" + semester + "|" + universityName;
+    public void display() {
+        super.display();
+        System.out.printf(" | %s | %s | %s\n",
+                major, semester, university);
     }
 }

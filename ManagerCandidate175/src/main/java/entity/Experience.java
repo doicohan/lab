@@ -2,24 +2,38 @@ package entity;
 
 public class Experience extends Candidate {
 
-    private int expInYear;
+    private int expYear;
     private String proSkill;
 
-    public Experience() {
+    public Experience(int expYear, String proSkill,
+            String id, String firstName, String lastName,
+            int birthYear, String address, String phone,
+            String email, int type) {
+
+        super(id, firstName, lastName, birthYear, address, phone, email, type);
+        this.expYear = expYear;
+        this.proSkill = proSkill;
     }
 
-    public Experience(int expInYear, String proSkill,
-            String candidateId, String firstName, String lastName,
-            int birthDate, String address, String phone,
-            String email, int candidateType) {
+    public int getExpYear() {
+        return expYear;
+    }
 
-        super(candidateId, firstName, lastName, birthDate, address, phone, email, candidateType);
-        this.expInYear = expInYear;
+    public void setExpYear(int expYear) {
+        this.expYear = expYear;
+    }
+
+    public String getProSkill() {
+        return proSkill;
+    }
+
+    public void setProSkill(String proSkill) {
         this.proSkill = proSkill;
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "|" + expInYear + "|" + proSkill;
+    public void display() {
+        super.display();
+        System.out.printf(" | %d | %s\n", expYear, proSkill);
     }
 }

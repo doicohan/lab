@@ -6,23 +6,34 @@ public class Fresher extends Candidate {
     private String graduationRank;
     private String education;
 
-    public Fresher() {
-    }
-
     public Fresher(String graduationDate, String graduationRank, String education,
-            String candidateId, String firstName, String lastName,
-            int birthDate, String address, String phone,
-            String email, int candidateType) {
+            String id, String firstName, String lastName,
+            int birthYear, String address, String phone,
+            String email, int type) {
 
-        super(candidateId, firstName, lastName, birthDate, address, phone, email, candidateType);
+        super(id, firstName, lastName, birthYear, address, phone, email, type);
 
         this.graduationDate = graduationDate;
         this.graduationRank = graduationRank;
         this.education = education;
     }
 
+    public String getGraduationDate() {
+        return graduationDate;
+    }
+
+    public String getGraduationRank() {
+        return graduationRank;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
     @Override
-    public String toString() {
-        return super.toString() + "|" + graduationDate + "|" + graduationRank + "|" + education;
+    public void display() {
+        super.display();
+        System.out.printf(" | %s | %s | %s\n",
+                graduationDate, graduationRank, education);
     }
 }

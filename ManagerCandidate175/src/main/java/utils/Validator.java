@@ -6,9 +6,6 @@ public class Validator {
 
     private static final Scanner in = new Scanner(System.in);
 
-    private static final String PHONE_REGEX = "\\d{10}";
-    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@(.+)$";
-
     public static String inputString(String msg) {
         System.out.print(msg);
         return in.nextLine().trim();
@@ -25,23 +22,23 @@ public class Validator {
         }
     }
 
-    public static String inputPhone() {
+    public static String inputPhone(String msg) {
         while (true) {
-            String phone = inputString("Phone: ");
-            if (phone.matches(PHONE_REGEX)) {
+            String phone = inputString(msg);
+            if (phone.matches("\\d{10}")) {
                 return phone;
             }
-            System.out.println("Invalid phone!");
+            System.out.println("Phone must be 10 digits.");
         }
     }
 
-    public static String inputEmail() {
+    public static String inputEmail(String msg) {
         while (true) {
-            String email = inputString("Email: ");
-            if (email.matches(EMAIL_REGEX)) {
+            String email = inputString(msg);
+            if (email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
                 return email;
             }
-            System.out.println("Invalid email!");
+            System.out.println("Invalid email.");
         }
     }
 }
