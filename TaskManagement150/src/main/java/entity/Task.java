@@ -16,7 +16,6 @@ public class Task {
 
     public Task(int id, String requirementName, int taskType, String date,
             double planFrom, double planTo, String assignee, String reviewer) {
-
         this.id = id;
         this.requirementName = requirementName;
         this.taskType = taskType;
@@ -62,5 +61,4 @@ public class Task {
     public double getTime() {
         return planTo - planFrom;
     }
-
 }

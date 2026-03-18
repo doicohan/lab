@@ -4,35 +4,12 @@ import java.util.Scanner;
 
 public class Validator {
 
-    private final Scanner sc = new Scanner(System.in);
-
-    public int getInt(String msg, int min, int max) {
-
-        while (true) {
-            try {
-
-                System.out.print(msg);
-                int n = Integer.parseInt(sc.nextLine());
-
-                if (n < min || n > max) {
-                    System.out.println("Out of range");
-                } else {
-                    return n;
-                }
-
-            } catch (Exception e) {
-                System.out.println("Invalid number");
-            }
-        }
-    }
+    private Scanner sc = new Scanner(System.in);
 
     public String getString(String msg) {
-
         while (true) {
-
             System.out.print(msg);
             String s = sc.nextLine().trim();
-
             if (s.isEmpty()) {
                 System.out.println("Empty!");
             } else {
@@ -41,42 +18,44 @@ public class Validator {
         }
     }
 
-    public String getDate(String msg) {
-
-        String regex = "\\d{2}-\\d{2}-\\d{4}";
-
+    public int getInt(String msg, int min, int max) {
         while (true) {
-
-            System.out.print(msg);
-            String date = sc.nextLine();
-
-            if (date.matches(regex)) {
-                return date;
+            try {
+                System.out.print(msg);
+                int n = Integer.parseInt(sc.nextLine());
+                if (n < min || n > max) {
+                    throw new Exception();
+                }
+                return n;
+            } catch (Exception e) {
+                System.out.println("Invalid!");
             }
-
-            System.out.println("Invalid date format (dd-MM-yyyy)");
         }
     }
 
     public double getTime(String msg) {
-
         while (true) {
-
             try {
-
                 System.out.print(msg);
                 double t = Double.parseDouble(sc.nextLine());
-
-                if (t < 8.0 || t > 17.5 || t % 0.5 != 0) {
-                    System.out.println("Time must be 8.0 -> 17.5 step 0.5");
-                } else {
-                    return t;
+                if (t < 8 || t > 17.5 || t % 0.5 != 0) {
+                    throw new Exception();
                 }
-
+                return t;
             } catch (Exception e) {
-                System.out.println("Invalid number");
+                System.out.println("Invalid time (8 -> 17.5, step 0.5)");
             }
         }
     }
 
+    public String getDate(String msg) {
+        while (true) {
+            System.out.print(msg);
+            String d = sc.nextLine();
+            if (d.matches("\\d{1,2}-\\d{1,2}-\\d{4}")) {
+                return d;
+            }
+            System.out.println("Invalid date format (dd-MM-yyyy)");
+        }
+    }
 }
