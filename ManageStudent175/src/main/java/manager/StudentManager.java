@@ -2,62 +2,32 @@ package manager;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import model.Report;
 import model.Student;
-import utils.Validation;
+import model.Report;
 
 public class StudentManager {
 
-    public void menu(){
-        System.out.println("WELCOME TO STUDENT MANAGEMENT");
-        System.out.println("1. Create");
-        System.out.println("2. Find and Sort");
-        System.out.println("3. Update/Delete");
-        System.out.println("4. Report");
-        System.out.println("5. Exit");
-        System.out.print("Enter choice: ");
-    }
-
-    public void createStudent(ArrayList<Student> list){
-
-        if(list.size() >= 10){
-            System.out.print("Do you want to continue (Y/N): ");
-            if(!Validation.checkInputYN()){
-                return;
+    public boolean checkDuplicate(ArrayList<Student> list, Student s){
+        for(Student st : list){
+            if(st.getId().equalsIgnoreCase(s.getId())
+                    && st.getSemester().equalsIgnoreCase(s.getSemester())
+                    && st.getCourseName().equalsIgnoreCase(s.getCourseName())){
+                return true;
             }
         }
-
-        System.out.print("Enter ID: ");
-        String id = Validation.checkInputString();
-
-        System.out.print("Enter Name: ");
-        String name = Validation.checkInputString();
-
-        System.out.print("Enter Semester: ");
-        String semester = Validation.checkInputString();
-
-        System.out.print("Enter Course: ");
-        String course = Validation.checkInputCourse();
-
-        if(Validation.checkStudentExist(list, id, name, semester, course)){
-            list.add(new Student(id, name, semester, course));
-            System.out.println("Add success.");
-        }else{
-            System.out.println("Duplicate student.");
-        }
+        return false;
     }
 
-    public void findAndSort(ArrayList<Student> list){
-
-        if(list.isEmpty()){
-            System.out.println("List empty.");
-            return;
+    public boolean addStudent(ArrayList<Student> list, Student s){
+        if(checkDuplicate(list, s)){
+            return false;
         }
+        list.add(s);
+        return true;
+    }
 
-        System.out.print("Enter name to search: ");
-        String name = Validation.checkInputString();
-
-        ArrayList<Student> result = new ArrayList<>();
+    public ArrayList<Student> search(ArrayList<Student> list, String name){
+        ArrayList<Student> result = new ArrayList<Student>();
 
         for(Student s : list){
             if(s.getStudentName().toLowerCase().contains(name.toLowerCase())){
@@ -66,17 +36,12 @@ public class StudentManager {
         }
 
         Collections.sort(result);
-
-        System.out.printf("%-20s%-15s%-10s\n","Name","Semester","Course");
-
-        for(Student s : result){
-            s.print();
-        }
+        return result;
     }
 
-    public void report(ArrayList<Student> list){
+    public ArrayList<Report> getReport(ArrayList<Student> list){
 
-        ArrayList<Report> reportList = new ArrayList<>();
+        ArrayList<Report> rlist = new ArrayList<Report>();
 
         for(Student s : list){
 
@@ -91,7 +56,7 @@ public class StudentManager {
 
             boolean exist = false;
 
-            for(Report r : reportList){
+            for(Report r : rlist){
                 if(r.getStudentName().equalsIgnoreCase(s.getStudentName())
                         && r.getCourseName().equalsIgnoreCase(s.getCourseName())){
                     exist = true;
@@ -100,16 +65,13 @@ public class StudentManager {
             }
 
             if(!exist){
-                reportList.add(new Report(s.getStudentName(),
-                        s.getCourseName(), count));
+                rlist.add(new Report(
+                        s.getStudentName(),
+                        s.getCourseName(),
+                        count));
             }
         }
 
-        for(Report r : reportList){
-            System.out.printf("%-20s | %-10s | %d\n",
-                    r.getStudentName(),
-                    r.getCourseName(),
-                    r.getTotalCourse());
-        }
+        return rlist;
     }
 }

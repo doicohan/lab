@@ -16,44 +16,40 @@ public class Student implements Comparable<Student>{
         this.courseName = courseName;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getStudentName(){
+    public String getStudentName() {
         return studentName;
     }
 
-    public void setStudentName(String studentName){
+    public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
-    public String getSemester(){
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(String semester){
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 
-    public String getCourseName(){
+    public String getCourseName() {
         return courseName;
     }
 
-    public void setCourseName(String courseName){
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
     @Override
-    public int compareTo(Student o){
+    public int compareTo(Student o) {
         return this.studentName.compareToIgnoreCase(o.studentName);
-    }
-
-    public void print(){
-        System.out.printf("%-20s%-15s%-10s\n", studentName, semester, courseName);
     }
 }

@@ -1,74 +1,64 @@
 package utils;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import model.Student;
 
 public class Validation {
 
-    private static final Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 
-    public static int checkInputIntLimit(int min, int max){
+    public static int inputInt(int min, int max){
         while(true){
             try{
-                int result = Integer.parseInt(sc.nextLine().trim());
-                if(result < min || result > max){
+                int n = Integer.parseInt(sc.nextLine());
+                if(n < min || n > max){
                     throw new NumberFormatException();
                 }
-                return result;
-            }catch(NumberFormatException e){
-                System.out.print("Please input number in range: ");
+                return n;
+            }catch(Exception e){
+                System.out.print("Input again: ");
             }
         }
     }
 
-    public static String checkInputString(){
+    public static String inputString(){
         while(true){
-            String result = sc.nextLine().trim();
-            if(result.isEmpty()){
-                System.out.print("Input cannot be empty: ");
+            String s = sc.nextLine().trim();
+            if(s.isEmpty()){
+                System.out.print("Input again: ");
             }else{
-                return result;
+                return s;
             }
         }
     }
 
-    public static boolean checkInputYN(){
+    public static String inputName(){
         while(true){
-            String result = sc.nextLine().trim();
-            if(result.equalsIgnoreCase("Y")){
-                return true;
+            String s = inputString();
+            if(s.matches("[a-zA-Z ]+")){
+                return s;
             }
-            if(result.equalsIgnoreCase("N")){
-                return false;
-            }
-            System.out.print("Please input Y/N: ");
+            System.out.print("Name invalid, input again: ");
         }
     }
 
-    public static String checkInputCourse(){
+    public static String inputCourse(){
         while(true){
-            String result = checkInputString();
-            if(result.equalsIgnoreCase("Java")
-                    || result.equalsIgnoreCase(".Net")
-                    || result.equalsIgnoreCase("C/C++")){
-                return result;
+            String s = inputString();
+            if(s.equalsIgnoreCase("Java") ||
+               s.equalsIgnoreCase(".Net") ||
+               s.equalsIgnoreCase("C/C++")){
+                return s;
             }
-            System.out.print("Course must be Java, .Net or C/C++: ");
+            System.out.print("Course must be Java/.Net/C/C++: ");
         }
     }
 
-    public static boolean checkStudentExist(ArrayList<Student> list,
-            String id, String name, String semester, String course){
-
-        for(Student s : list){
-            if(id.equalsIgnoreCase(s.getId())
-                    && name.equalsIgnoreCase(s.getStudentName())
-                    && semester.equalsIgnoreCase(s.getSemester())
-                    && course.equalsIgnoreCase(s.getCourseName())){
-                return false;
-            }
+    public static boolean inputYN(){
+        while(true){
+            String s = sc.nextLine();
+            if(s.equalsIgnoreCase("Y")) return true;
+            if(s.equalsIgnoreCase("N")) return false;
+            System.out.print("Input Y/N: ");
         }
-        return true;
     }
 }
